@@ -10,12 +10,12 @@ Node::Node(Node* parent, double data, dataType type) :
 {}
 
 Node::Node(Node* parent, char* data, dataType type) :
-	parent_		(parent),
-	dataStr_	(data),
-	dataNum_	(std::numeric_limits<double>::quiet_NaN()),
-	type_		(type),
-	left_		(NULL),
-	right_		(NULL)
+    parent_	(parent),
+    dataStr_	(data),
+    dataNum_	(std::numeric_limits<double>::quiet_NaN()),
+    type_	(type),
+    left_	(NULL),
+    right_	(NULL)
 {}
 
 Node::~Node() {
