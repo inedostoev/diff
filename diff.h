@@ -31,7 +31,6 @@ public:
     
 		    diff& operator = (const diff&);
     		    diff(const diff&);
-
     void            execute();
 private:
     Node*           Tree_; 
