@@ -28,15 +28,16 @@ public:
                     ~diff();
     FILE            *inputFile_;
     FILE            *outputFile_;
-    diff& operator = (const diff&);
-    diff(const diff&);
+    
+		    diff& operator = (const diff&);
+    		    diff(const diff&);
 
-	void execute();
+    void            execute();
 private:
     Node*           Tree_; 
 
     Node*           buildTree(char* buffer, size_t *counter, Node* Darth_Vader);
-	Node*           copyTree(Node* node, Node* parent);
+    Node*           copyTree(Node* node, Node* parent);
     Node*           differentiation(Node* node, Node* Parent);
     Node*           transformDiffTree(Node* diffNode, Node* parent);
 
