@@ -14,7 +14,8 @@ diff::diff() :
 	}
     size_t fileSize = getFileSize();
     char *buffer = (char*)calloc(fileSize, sizeof(char));
-    fread(buffer, sizeof(char), fileSize, inputFile_);    
+    size_t count = fread(buffer, sizeof(char), fileSize, inputFile_);    
+    if (count != fileSize - 1) printf("Error with fread\n");
     size_t counter = 0;
     Tree_ = buildTree(buffer, &counter, NULL);
 	if (Tree_ == NULL) {
