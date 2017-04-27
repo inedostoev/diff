@@ -24,11 +24,13 @@ void diff::makeTex(Node* root, Node* firstNode) {
     fprintf(stream, "\\end{eqnarray}\n");
     fprintf(stream, "\\end{document}\n");
     fclose(stream);
-    chdir("./output/Tex/");
-    system("pdflatex diff.tex");
-    system("evince diff.pdf");
-    system("mv diff.pdf ../");
-    chdir("./../");
+    int i = 0;
+    i = chdir("./output/Tex/");
+    i = system("pdflatex diff.tex");
+    i = system("evince diff.pdf");
+    i = system("mv diff.pdf ../");
+    i = chdir("./../");
+    if (i != 0) printf("makeTex error\n");
     stream = NULL;
 }
 
@@ -111,10 +113,12 @@ void diff::dotDump(Node* root) {
     fprintf(ptrFile, "}");
     fclose(ptrFile);
     ptrFile = NULL;
-    chdir("./output/");
-    system("dot ./Dot/dumpFile.gv -Tpng -o dumpFile.png");
-    system("xdot ./Dot/dumpFile.gv");
-    chdir("./../");
+    int i = 0;
+    i = chdir("./output/");
+    i = system("dot ./Dot/dumpFile.gv -Tpng -o dumpFile.png");
+    i = system("xdot ./Dot/dumpFile.gv");
+    i = chdir("./../");
+    if (i != 0) printf("dotDump error\n");
 }
 
 void diff::dotNodeDump(Node *root, FILE* stream) {
@@ -129,4 +133,3 @@ void diff::dotNodeDump(Node *root, FILE* stream) {
         dotNodeDump(root->right_, stream);
     }
 }
-
