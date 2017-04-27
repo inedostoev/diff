@@ -1,0 +1,47 @@
+digraph graf {
+treeNode_0x60400000c7d0 [label="treeNode_[0x60400000c7d0]\l{\l  parent_ [(nil)]\l  data_ [0x60200000e730] = *\l  type_ = 2\l  left_ [0x60400000c790]\l  right_ [0x60400000c550]\l}\l"]
+treeNode_0x60400000c7d0->treeNode_0x60400000c790
+treeNode_0x60400000c790 [label="treeNode_[0x60400000c790]\l{\l  parent_ [0x60400000c7d0]\l  data_ [0x60200000e710] = /\l  type_ = 2\l  left_ [0x60400000c750]\l  right_ [0x60400000c710]\l}\l"]
+treeNode_0x60400000c790->treeNode_0x60400000c750
+treeNode_0x60400000c750 [label="treeNode_[0x60400000c750]\l{\l  parent_ [0x60400000c790]\l  data_[0x60400000c760] = 1\l  type_ = 0\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c790->treeNode_0x60400000c710
+treeNode_0x60400000c710 [label="treeNode_[0x60400000c710]\l{\l  parent_ [0x60400000c790]\l  data_ [0x60200000e6f0] = /\l  type_ = 2\l  left_ [0x60400000c6d0]\l  right_ [0x60400000c690]\l}\l"]
+treeNode_0x60400000c710->treeNode_0x60400000c6d0
+treeNode_0x60400000c6d0 [label="treeNode_[0x60400000c6d0]\l{\l  parent_ [0x60400000c710]\l  data_[0x60400000c6e0] = 1\l  type_ = 0\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c710->treeNode_0x60400000c690
+treeNode_0x60400000c690 [label="treeNode_[0x60400000c690]\l{\l  parent_ [0x60400000c710]\l  data_ [0x60200000e6d0] = +\l  type_ = 2\l  left_ [0x60400000c650]\l  right_ [0x60400000c590]\l}\l"]
+treeNode_0x60400000c690->treeNode_0x60400000c650
+treeNode_0x60400000c650 [label="treeNode_[0x60400000c650]\l{\l  parent_ [0x60400000c690]\l  data_ [0x60200000e6b0] = *\l  type_ = 2\l  left_ [0x60400000c610]\l  right_ [0x60400000c5d0]\l}\l"]
+treeNode_0x60400000c650->treeNode_0x60400000c610
+treeNode_0x60400000c610 [label="treeNode_[0x60400000c610]\l{\l  parent_ [0x60400000c650]\l  data_ [0x60200000e690] = x\l  type_ = 1\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c650->treeNode_0x60400000c5d0
+treeNode_0x60400000c5d0 [label="treeNode_[0x60400000c5d0]\l{\l  parent_ [0x60400000c650]\l  data_ [0x60200000e670] = x\l  type_ = 1\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c690->treeNode_0x60400000c590
+treeNode_0x60400000c590 [label="treeNode_[0x60400000c590]\l{\l  parent_ [0x60400000c690]\l  data_[0x60400000c5a0] = 2\l  type_ = 0\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c7d0->treeNode_0x60400000c550
+treeNode_0x60400000c550 [label="treeNode_[0x60400000c550]\l{\l  parent_ [0x60400000c7d0]\l  data_ [0x60200000e650] = /\l  type_ = 2\l  left_ [0x60400000c510]\l  right_ [0x60400000c3d0]\l}\l"]
+treeNode_0x60400000c550->treeNode_0x60400000c510
+treeNode_0x60400000c510 [label="treeNode_[0x60400000c510]\l{\l  parent_ [0x60400000c550]\l  data_ [0x60200000e630] = -\l  type_ = 2\l  left_ [0x60400000c4d0]\l  right_ [0x60400000c490]\l}\l"]
+treeNode_0x60400000c510->treeNode_0x60400000c4d0
+treeNode_0x60400000c4d0 [label="treeNode_[0x60400000c4d0]\l{\l  parent_ [0x60400000c510]\l  data_[0x60400000c4e0] = 0\l  type_ = 0\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c510->treeNode_0x60400000c490
+treeNode_0x60400000c490 [label="treeNode_[0x60400000c490]\l{\l  parent_ [0x60400000c510]\l  data_ [0x60200000e610] = +\l  type_ = 2\l  left_ [0x60400000c450]\l  right_ [0x60400000c410]\l}\l"]
+treeNode_0x60400000c490->treeNode_0x60400000c450
+treeNode_0x60400000c450 [label="treeNode_[0x60400000c450]\l{\l  parent_ [0x60400000c490]\l  data_ [0x60200000e5f0] = x\l  type_ = 1\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c490->treeNode_0x60400000c410
+treeNode_0x60400000c410 [label="treeNode_[0x60400000c410]\l{\l  parent_ [0x60400000c490]\l  data_ [0x60200000e5d0] = x\l  type_ = 1\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c550->treeNode_0x60400000c3d0
+treeNode_0x60400000c3d0 [label="treeNode_[0x60400000c3d0]\l{\l  parent_ [0x60400000c550]\l  data_ [0x60200000e5b0] = ^\l  type_ = 2\l  left_ [0x60400000c390]\l  right_ [0x60400000c250]\l}\l"]
+treeNode_0x60400000c3d0->treeNode_0x60400000c390
+treeNode_0x60400000c390 [label="treeNode_[0x60400000c390]\l{\l  parent_ [0x60400000c3d0]\l  data_ [0x60200000e590] = +\l  type_ = 2\l  left_ [0x60400000c350]\l  right_ [0x60400000c290]\l}\l"]
+treeNode_0x60400000c390->treeNode_0x60400000c350
+treeNode_0x60400000c350 [label="treeNode_[0x60400000c350]\l{\l  parent_ [0x60400000c390]\l  data_ [0x60200000e570] = *\l  type_ = 2\l  left_ [0x60400000c310]\l  right_ [0x60400000c2d0]\l}\l"]
+treeNode_0x60400000c350->treeNode_0x60400000c310
+treeNode_0x60400000c310 [label="treeNode_[0x60400000c310]\l{\l  parent_ [0x60400000c350]\l  data_ [0x60200000e550] = x\l  type_ = 1\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c350->treeNode_0x60400000c2d0
+treeNode_0x60400000c2d0 [label="treeNode_[0x60400000c2d0]\l{\l  parent_ [0x60400000c350]\l  data_ [0x60200000e530] = x\l  type_ = 1\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c390->treeNode_0x60400000c290
+treeNode_0x60400000c290 [label="treeNode_[0x60400000c290]\l{\l  parent_ [0x60400000c390]\l  data_[0x60400000c2a0] = 2\l  type_ = 0\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+treeNode_0x60400000c3d0->treeNode_0x60400000c250
+treeNode_0x60400000c250 [label="treeNode_[0x60400000c250]\l{\l  parent_ [0x60400000c3d0]\l  data_[0x60400000c260] = 2\l  type_ = 0\l  left_ [(nil)]\l  right_ [(nil)]\l}\l"]
+}
