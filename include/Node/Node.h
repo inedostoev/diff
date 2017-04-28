@@ -19,7 +19,7 @@ public:
                     Node(Node* parent, double data, dataType type);
 		    Node(Node* parent, char* data, dataType type);
 		    ~Node();
-	
+
     bool            nodeOk() const;
     void            dumpNode(FILE* stream) const;     
     void            dotDumpNode(FILE* stream) const;

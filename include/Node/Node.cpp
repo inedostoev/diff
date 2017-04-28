@@ -20,7 +20,7 @@ Node::Node(Node* parent, char* data, dataType type) :
 
 Node::~Node() {
 	if (dataStr_ == NULL) dataNum_ = -666;
-    else free(dataStr_);
+    free(dataStr_);
     if(left_) delete left_;
     if(right_) delete right_;
     parent_ = left_ = right_ = NULL;
