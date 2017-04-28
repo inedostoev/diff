@@ -31,6 +31,21 @@ diff::~diff() {
     Tree_ = NULL; 
 }
 
+void diff::deleteNode(Node* node) {
+    if (node->dataStr_ == NULL) node->dataNum_ = -666;
+    else free(node->dataStr_);
+    node->type_ = ERROR;
+    node->parent_ = NULL;
+    node->left_ = node->right_ = NULL;
+}
+
+void diff::deleteTree(Node* node) {
+    if(node == NULL) return;
+    deleteTree(node->left_);
+    deleteNode(node);
+    deleteTree(node->right_);
+}
+
 //Darth_Vader = parent;
 //Luke        = son;
 
@@ -100,21 +115,27 @@ Node* diff::copyTree(Node* node, Node* parent) {
     if(node->dataStr_ == NULL)
         newNode = new Node(parent, node->dataNum_, node->type_);
     else { 
-        char* data = (char*)calloc(MAX_OPER_OR_FUNC_SIZE, sizeof(char));
-        copyStr(node, data);
-        newNode = new Node(parent, data, node->type_);
+        int i = 0;
+        char* Str = (char*)calloc(MAX_OPER_OR_FUNC_SIZE, sizeof(char));
+        while(node->dataStr_[i] != '\0') {
+            Str[i] = node->dataStr_[i];
+            i++;
+        }
+        newNode = new Node(parent, Str, node->type_);
     }
     newNode->left_ = copyTree(node->left_, newNode);
     newNode->right_ = copyTree(node->right_, newNode);
     return newNode;
 }
 
-void diff::copyStr(Node* node, char* copyStr) {
+char* diff::copyStr(char* copyStr) {
     int i = 0;
-    while(node->dataStr_[i] != '\0') {
-        copyStr[i] = node->dataStr_[i];
+    char* Str = (char*)calloc(MAX_OPER_OR_FUNC_SIZE, sizeof(char));
+    while(copyStr[i] != '\0') {
+        Str[i] = copyStr[i];
         i++;
     }
+    return Str;
 }
 
 char *diff::makeOperPtr(char Oper) {
@@ -132,12 +153,15 @@ void diff::execute() {
     dotDump(diffTree);
     Node* trfmDiffTree = transformDiffTree(diffTree, NULL);
     dotDump(trfmDiffTree);
-    Node* tmp = transformDiffTree(trfmDiffTree, NULL);
+    Node* tmpq = transformDiffTree(trfmDiffTree, NULL);
+    Node* tmp = transformDiffTree(tmpq, NULL);
     dotDump(tmp);
     makeTex(tmp, copTree);
+    delete trfmDiffTree;
     delete copTree;
     delete diffTree;
-    delete trfmDiffTree;
+    delete tmp;
+    delete tmpq;
 }
 
 Priority diff::getPriority(Node* node) {
