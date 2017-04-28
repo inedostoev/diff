@@ -44,8 +44,10 @@ private:
 
     dataType        getDataType(char* data);
     size_t          getFileSize();
-   
-    void            copyStr(Node* node, char* copyStr);
+    
+    void            deleteNode(Node* node);
+    void            deleteTree(Node* node);
+    char*           copyStr(char* copyStr);
     char*           makeOperPtr(char Oper);
     void            dumpTree(FILE* stream, Node* node);
     void            dotDump(Node* root);
