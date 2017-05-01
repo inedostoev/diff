@@ -156,12 +156,15 @@ void diff::execute() {
     Node* tmpq = transformDiffTree(trfmDiffTree, NULL);
     Node* tmp = transformDiffTree(tmpq, NULL);
     dotDump(tmp);
-    makeTex(tmp, copTree);
+    Node* tmpr = transformDiffTree(tmp, NULL);
+    dotDump(tmpr);
+    makeTex(tmpr, copTree);
     delete trfmDiffTree;
     delete copTree;
     delete diffTree;
     delete tmp;
     delete tmpq;
+    delete tmpr;
 }
 
 Priority diff::getPriority(Node* node) {
