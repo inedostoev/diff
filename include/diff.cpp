@@ -1,12 +1,26 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include "diff.h"
 
 diff::diff() :
     inputFile_      (NULL),
     outputFile_     (NULL),
-    Tree_           (NULL)
+    Tree_           (NULL),
+    transformFlag   (false),
+    counter_        (0)
 {
+    inputFile_ = fopen("./input/configFile.txt", "r");
+	if (inputFile_ == NULL) {
+		printf("Can't open inputFile\n");
+		exit(1);
+	}
+    size_t fileSize = getFileSize();
+    str_ = (char*)calloc(fileSize, sizeof(char));
+    size_t count = fread(str_, sizeof(char), fileSize, inputFile_);    
+    if (count != fileSize - 1) printf("Error with fread\n");
+    Tree_ = Counting(NULL);
+    free(str_);
+    fclose(inputFile_);
+
+/*
     inputFile_ = fopen("./input/configFile.txt", "r");
 	if (inputFile_ == NULL) {
 		printf("Can't open inputFile\n");
@@ -24,6 +38,7 @@ diff::diff() :
 	}
     free(buffer);
     fclose(inputFile_);
+*/
 }
 
 diff::~diff() {
@@ -90,8 +105,6 @@ dataType diff::getDataType(char* data) {						//дописать конец, с�
 		return FUNCTION;
 	if (!strcmp("cos", data))
 		return FUNCTION;
-	if (!strcmp("sin", data))
-		return FUNCTION;
 	if (!strcmp("x", data))
 		return VARIABLE;
 	return NUMBER;
@@ -149,22 +162,18 @@ void diff::execute() {
     Node* copTree = copyTree(Tree_, NULL);
     dotDump(copTree);
     dumpTree(stdout, copTree);
+    
     Node* diffTree = differentiation(copTree, NULL); 
     dotDump(diffTree);
-    Node* trfmDiffTree = transformDiffTree(diffTree, NULL);
+    
+    Node* trfmDiffTree = transformTree(diffTree);
     dotDump(trfmDiffTree);
-    Node* tmpq = transformDiffTree(trfmDiffTree, NULL);
-    Node* tmp = transformDiffTree(tmpq, NULL);
-    dotDump(tmp);
-    Node* tmpr = transformDiffTree(tmp, NULL);
-    dotDump(tmpr);
-    makeTex(tmpr, copTree);
+    
+    makeTex(trfmDiffTree, copTree);
+
     delete trfmDiffTree;
     delete copTree;
     delete diffTree;
-    delete tmp;
-    delete tmpq;
-    delete tmpr;
 }
 
 Priority diff::getPriority(Node* node) {
@@ -175,6 +184,17 @@ Priority diff::getPriority(Node* node) {
     return LOW_PRIOR;
 }
 
+Node* diff::transformTree(Node* trTree) {
+    Node* trfmDiffTree = transformDiffTree(trTree, NULL);
+    if(transformFlag == true) {
+        transformFlag = false;
+        Node* trfmTree = transformTree(trfmDiffTree);
+        delete trfmDiffTree;
+        return trfmTree;
+    }
+    else return trfmDiffTree;
+}
+ 
 void diff::visitor(Traverse mode, Node* node, void act(Node*)) {
     switch(mode) {
         case INORDER:
