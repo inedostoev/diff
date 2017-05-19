@@ -19,13 +19,15 @@ Node* diff::transformDiffTree(Node* diffNode, Node* parent) {
         Node* newTrfNode = new Node(parent, 0.0, NUMBER); 
         newTrfNode->left_ = NULL;
         newTrfNode->right_= NULL;
+        transformFlag = true;
         return newTrfNode;
     }
 //--------------------------------------------------------//
 #define RIGHTONEEQUAL                                   \
         fabs(diffNode->right_->dataNum_ - 1) < accuracy 
         if(MUL && RIGHTONEEQUAL) {
-           Node* newTrfNode = LEFTCOPY;       
+            Node* newTrfNode = LEFTCOPY;   
+            transformFlag = true;
             return newTrfNode;
         }
 #undef RIGHTONEEQUAL
@@ -35,6 +37,7 @@ Node* diff::transformDiffTree(Node* diffNode, Node* parent) {
         else
         if(MUL && LEFTONEEQUAL) {
             Node* newTrfNode = RIGHTCOPY;
+            transformFlag = true;
             return newTrfNode;
         }
 #undef LEFTONEEQUAL
@@ -44,12 +47,14 @@ Node* diff::transformDiffTree(Node* diffNode, Node* parent) {
         else
         if(ADD && LEFTZEROEQUAL) {
             Node* newTrfNode = RIGHTCOPY;
+            transformFlag = true;
             return newTrfNode;
         }   
 //--------------------------------------------------------//
         else
         if(ADD && RIGHTZEROEQUAL) {
             Node* newTrfNode = LEFTCOPY;
+            transformFlag = true;
             return newTrfNode;
         } 
 #undef ADD
@@ -58,6 +63,7 @@ Node* diff::transformDiffTree(Node* diffNode, Node* parent) {
         else
         if(SUB && RIGHTZEROEQUAL) {
             Node* newTrfNode = LEFTCOPY;
+            transformFlag = true;
             return newTrfNode;
         }
 //-------------------------------------------------------//
@@ -69,6 +75,7 @@ Node* diff::transformDiffTree(Node* diffNode, Node* parent) {
             new Node(newTrfNode, -1, NUMBER);
         newTrfNode->right_ = 
             copyTree(diffNode->right_, newTrfNode);
+        transformFlag = true;
         return newTrfNode;       
         }
 #undef SUB
