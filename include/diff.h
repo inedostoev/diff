@@ -30,21 +30,35 @@ public:
     FILE            *inputFile_;
     FILE            *outputFile_;
     
-		    diff& operator = (const diff&);
-    		    diff(const diff&);
+	diff& operator= (const diff&);
+    		        diff(const diff&);
     void            execute();
                 
 private:
     Node*           Tree_; 
 
+    Node*           Counting(Node* parent);
+    Node*           getSubAdd(Node* parent);
+    Node*           getMulDiv(Node* parent);
+    Node*           getBracketsFunc(Node* parent);
+    Node*           getNumber(Node* parent);
+
+    char*           str_;
+    size_t          counter_;
+
     Node*           buildTree(char* buffer, size_t *counter, Node* Darth_Vader);
     Node*           copyTree(Node* node, Node* parent);
     Node*           differentiation(Node* node, Node* Parent);
     Node*           transformDiffTree(Node* diffNode, Node* parent);
-
+    
+    Node*           transformTree(Node* transformTree);
+    bool            transformFlag;
+    
     dataType        getDataType(char* data);
     size_t          getFileSize();
-    
+
+    char*           makeFuncPtr(char* func);
+
     void            deleteNode(Node* node);
     void            deleteTree(Node* node);
     char*           copyStr(char* copyStr);
