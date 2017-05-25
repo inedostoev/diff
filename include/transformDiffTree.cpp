@@ -80,6 +80,23 @@ Node* diff::transformDiffTree(Node* diffNode, Node* parent) {
         }
 #undef SUB
 //-------------------------------------------------------//
+#define POW !strcmp(diffNode->dataStr_, "^")    
+#define RIGHTONEEQUAL                                    \
+        fabs(diffNode->right_->dataNum_ - 1) < accuracy
+        else
+        if(POW && RIGHTONEEQUAL) {
+        Node* newTrfNode = 
+            new Node(parent, makeOperPtr('*'), OPERAND);
+        newTrfNode->left_ = 
+            copyTree(diffNode->left_, newTrfNode);
+        newTrfNode->right_ = 
+            copyTree(diffNode->right_, newTrfNode);
+        transformFlag = true;
+        return newTrfNode;
+        }
+#undef POW
+#undef RIGHTONEEQUAL
+//-------------------------------------------------------//        
     }
 #undef LEFTZEROEQUAL
 #undef RIGHTZEROEQUAL
