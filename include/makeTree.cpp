@@ -33,11 +33,11 @@ Node* diff::getSubAdd(Node* parent) {
 }
 
 Node* diff::getMulDiv(Node* parent) {
-    Node* newNode = getBracketsFunc(parent);  
+    Node* newNode = getPower(parent);  
     while(str_[counter_] == '*' || str_[counter_] == '/') {
         int op = str_[counter_];
         counter_++;
-        Node* rightNode = getMulDiv(parent);
+        Node* rightNode = getPower(parent);
         if(op == '*') {
             Node* leftNode = newNode;
             newNode = new Node(parent, makeOperPtr('*'), OPERAND);
@@ -54,6 +54,22 @@ Node* diff::getMulDiv(Node* parent) {
             leftNode->parent_ = newNode;
             rightNode->parent_ = newNode;
         }
+    }
+    return newNode;
+}
+
+Node *diff::getPower(Node* parent) {
+    Node* newNode = getBracketsFunc(parent);  
+    while(str_[counter_] == '^') {
+        int op = str_[counter_];
+        counter_++;
+        Node* rightNode = getBracketsFunc(parent);
+        Node* leftNode = newNode;
+        newNode = new Node(parent, makeOperPtr('^'), OPERAND);
+        newNode->left_ = leftNode;
+        newNode->right_ = rightNode;
+        leftNode->parent_ = newNode;
+        rightNode->parent_ = newNode;
     }
     return newNode;
 }
