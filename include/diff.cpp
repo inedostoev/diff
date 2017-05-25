@@ -4,8 +4,9 @@ diff::diff() :
     inputFile_      (NULL),
     outputFile_     (NULL),
     Tree_           (NULL),
-    transformFlag   (false),
-    counter_        (0)
+    str_            (NULL),
+    counter_        (0),
+    transformFlag   (false)
 {
     inputFile_ = fopen("./input/configFile.txt", "r");
 	if (inputFile_ == NULL) {
