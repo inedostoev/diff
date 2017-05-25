@@ -42,7 +42,8 @@ private:
     Node*           getMulDiv(Node* parent);
     Node*           getBracketsFunc(Node* parent);
     Node*           getNumber(Node* parent);
-
+    Node*           getPower(Node* parent);
+    
     char*           str_;
     size_t          counter_;
 
